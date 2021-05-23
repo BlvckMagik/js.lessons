@@ -1,17 +1,14 @@
-/* Этот код менять не нужно */
-const defaultUserName = 'anonymus';
-const userName = 'John';
-const anotherUser = null;
-const isAdmin = false;
-const message = 'text';
-const anotherMessage = 'text as well';
-const isLoggedIn = Boolean(userName);
-
-/* В коде ниже нужно использовать правильные операторы после знака присваивания */
-const activeUser = anotherUser || defaultUserName;
-const hasAccess = isAdmin != isLoggedIn;
-const isTruthy = message != anotherMessage;
-const isFalsy = !isLoggedIn;
-const isNotTrue = typeof message === 'number';
-const isTrue = typeof message != 'boolean';
-console.log(isTrue);
+const m = 4;
+const n = 14;
+let result = 0;
+for (let i = m; i <= n; i += 1) {
+  if (i % 5 === 0) {
+    console.log(i);
+  } else if (i % 2 === 0 && i % 4 !== 0) {
+    result += i;
+  } else if (i % 3 === 0) {
+    result -= i;
+  } else if (i % 4 === 0) {
+    result *= i;
+  }
+}
