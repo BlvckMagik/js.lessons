@@ -7,5 +7,7 @@ while (index <= num) {
 }
 
 const entire = Math.round(sum / 1234);
-const remainder = sum / 1234;
+const remainder = sum % 1234;
 console.log(entire > remainder);
+console.log(entire);
+console.log(remainder);
