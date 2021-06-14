@@ -1,13 +1,15 @@
-const factorial = number => {
-  if (number < 0 && number > 100) {
-    return null;
-  } else if (number === 0) {
-    return number;
+function getAbbreviation(str) {
+  let res = '';
+  const arr = str.split(' ');
+  for (let i = 0; i < arr.length; i += 1) {
+    if (arr[i].length > 3) {
+      res += arr[i][0];
+    }
   }
+  return res.toUpperCase();
+}
 
-  let result = 1;
-  for (let i = 1; i <= number; i += 1) {
-    result *= i;
-  }
-  return result;
-};
+// examples
+console.log(getAbbreviation('some company name')); // ===> SCN
+console.log(getAbbreviation('Union of Soviet Socialist Republics')); // ===> USSR
+console.log(getAbbreviation('United States')); // ===> US

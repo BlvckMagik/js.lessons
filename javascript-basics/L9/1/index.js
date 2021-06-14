@@ -1,16 +1,6 @@
-const students = [
-  "Andrey",
-  "Denis",
-  "Alex",
-  "Nastya",
-  "Ninja",
-  "Skywoker",
-  "Joda",
-  "Leo",
-];
+const getMessage = (userName, email, tasksCount) => {
+  return `Hello again, ${userName}. Your email is ${email}. You have ${tasksCount} tasks for today`;
+};
 
-console.log(students[2]);
-console.log(students[5]);
-console.log(students[0]);
-console.log(students[students.length - 1]);
-console.log(students.length);
+console.log(getMessage('user', 'i@g.com', 2));
+console.log(getMessage('user1', 'd@c.com', 4));
