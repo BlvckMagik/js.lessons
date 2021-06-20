@@ -4,10 +4,11 @@
  */
 function getGoalsStat(players) {
   const res = [];
-  for (let i = 0; i < players.length; i += 1) {
-    let name = Object.i[name];
-    name.push(res);
-  }
+  players.forEach(obj => {
+    const int = {};
+
+    res.push(int);
+  });
 }
 
 // examples
