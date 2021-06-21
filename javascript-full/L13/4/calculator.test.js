@@ -15,3 +15,7 @@ it('should return multiplication result', () => {
 it('should return division result', () => {
   expect(calc('2 / 1')).toEqual('2 / 1 = 2');
 });
+
+it('should return null (not a string)', () => {
+  expect(calc(1 + 2)).toEqual(null);
+});
