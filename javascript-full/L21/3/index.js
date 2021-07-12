@@ -1,18 +1,15 @@
-class Wallet {
-  balance = 0;
-
-  getBalance() {
-    return this.balance;
-  }
-
-  deposit(sum) {
-    this.balance += sum;
-  }
-
-  withdraw(sum) {
-    if (this.balance < sum) console.log('No enough funds');
-    else this.balance -= sum;
-  }
+function getItemsList() {
+  const elementsList = document.querySelectorAll('.technology');
+  console.dir(elementsList);
+  return elementsList;
 }
 
-const wall1 = new Wallet();
+console.log(getItemsList());
+
+function getItemsArray() {
+  const elementsArray = Array.from(document.querySelectorAll('.tool'));
+  console.dir(elementsArray);
+  return elementsArray;
+}
+
+console.log(getItemsArray());
