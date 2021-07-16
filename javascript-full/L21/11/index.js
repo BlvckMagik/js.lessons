@@ -4,5 +4,3 @@ function manageClasses() {
   document.querySelector('.three').classList.toggle('three_done');
   document.querySelector('.some-class').classList.add('another-class');
 }
-
-manageClasses();
