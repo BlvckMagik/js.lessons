@@ -42,7 +42,11 @@ renderTasks(tasks);
 
 const addNewElem = () => {
   if (inputElem.value === '') return;
-  tasks.push({ text: inputElem.value, done: false });
+  tasks.push({
+    text: inputElem.value,
+    id: Math.round(Math.random() * 1000),
+    done: false,
+  });
   renderTasks(tasks);
   inputElem.value = '';
 };
