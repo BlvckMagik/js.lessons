@@ -24,7 +24,6 @@ const renderTasks = tasksList => {
       listItemElem.classList.add('list__item');
       const checkbox = document.createElement('input');
       checkbox.setAttribute('type', 'checkbox');
-      checkbox.dataset.checked = done;
       checkbox.checked = done;
       checkbox.dataset.id = id;
       checkbox.classList.add('list__item-checkbox');
@@ -49,9 +48,13 @@ const addNewElem = () => {
 };
 
 const turnElChecked = event => {
+  const isCheckbox = event.target.classList.contains('list__item-checkbox');
+  if (!isCheckbox) {
+    return;
+  }
+
   const checkboxId = event.target.dataset.id;
   const taskElemInArray = tasks.find(({ id }) => id === Number(checkboxId));
-  taskElemInArray.timeOfChange = new Date();
   if (taskElemInArray.done) {
     taskElemInArray.done = false;
   } else {
