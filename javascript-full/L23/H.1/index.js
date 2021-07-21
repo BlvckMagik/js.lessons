@@ -11,8 +11,6 @@ const tasks = [
   { text: 'Buy meat', done: true },
 ];
 
-console.log(tasks.find(el => Object.values(el).includes('Buy milk')));
-
 const renderTasks = tasksList => {
   listElem.innerHTML = '';
   const tasksElems = tasksList
@@ -49,6 +47,7 @@ const addNewElem = () => {
   tasks.push({ text: task, done: false });
   task = '';
   renderTasks(tasks);
+  inputElem.value = '';
 };
 
 const turnElChecked = event => {
