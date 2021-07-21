@@ -4,24 +4,29 @@ const createTaskBtn = document.querySelector('.create-task-btn');
 const listItem = document.querySelector('.list__item');
 
 const tasks = [
-  { text: 'Buy milk', done: false },
-  { text: 'Pick up Tom from airport', done: false },
-  { text: 'Visit party', done: false },
-  { text: 'Visit doctor', done: true },
-  { text: 'Buy meat', done: true },
+  { text: 'Buy milk', id: Math.round(Math.random() * 1000), done: false },
+  {
+    text: 'Pick up Tom from airport',
+    id: Math.round(Math.random() * 1000),
+    done: false,
+  },
+  { text: 'Visit party', id: Math.round(Math.random() * 1000), done: false },
+  { text: 'Visit doctor', id: Math.round(Math.random() * 1000), done: true },
+  { text: 'Buy meat', id: Math.round(Math.random() * 1000), done: true },
 ];
 
 const renderTasks = tasksList => {
   listElem.innerHTML = '';
   const tasksElems = tasksList
     .sort((a, b) => a.done - b.done)
-    .map(({ text, done }) => {
+    .map(({ text, done, id }) => {
       const listItemElem = document.createElement('li');
       listItemElem.classList.add('list__item');
       const checkbox = document.createElement('input');
       checkbox.setAttribute('type', 'checkbox');
       checkbox.dataset.checked = done;
       checkbox.checked = done;
+      checkbox.dataset.id = id;
       checkbox.classList.add('list__item-checkbox');
       if (done) {
         listItemElem.classList.add('list__item_done');
