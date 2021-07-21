@@ -49,15 +49,16 @@ const addNewElem = () => {
 };
 
 const turnElChecked = event => {
-  const checkbox = event.target;
-  const text = checkbox.closest('.list__item').innerText;
-
-  if (checkbox.dataset.checked === 'false') {
-    tasks.find(el => Object.values(el).includes(text)).done = true;
+  const checkboxId = event.target.dataset.id;
+  const taskElemInArray = tasks.find(({ id }) => id === Number(checkboxId));
+  taskElemInArray.timeOfChange = new Date();
+  if (taskElemInArray.done) {
+    taskElemInArray.done = false;
   } else {
-    tasks.find(el => Object.values(el).includes(text)).done = false;
+    taskElemInArray.done = true;
   }
-
+  event.target.closest('.list__item').classList.toggle('list__item_done');
+  listElem.innerHTML = '';
   renderTasks(tasks);
 };
 
