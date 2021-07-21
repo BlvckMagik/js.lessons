@@ -36,32 +36,25 @@ const renderTasks = tasksList => {
 
 renderTasks(tasks);
 
-let task = '';
-
-const setTask = event => {
-  task = event.target.value;
-};
-
 const addNewElem = () => {
-  if (task === '') return;
-  tasks.push({ text: task, done: false });
-  task = '';
+  if (inputElem.value === '') return;
+  tasks.push({ text: inputElem.value, done: false });
   renderTasks(tasks);
   inputElem.value = '';
 };
 
 const turnElChecked = event => {
-  if (!event.target.classList.contains('list__item-checkbox')) return;
   const checkbox = event.target;
   const text = checkbox.closest('.list__item').innerText;
+
   if (checkbox.dataset.checked === 'false') {
     tasks.find(el => Object.values(el).includes(text)).done = true;
   } else {
     tasks.find(el => Object.values(el).includes(text)).done = false;
   }
+
   renderTasks(tasks);
 };
 
-inputElem.addEventListener('input', setTask);
 createTaskBtn.addEventListener('click', addNewElem);
 listElem.addEventListener('click', turnElChecked);
