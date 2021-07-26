@@ -1,5 +1,5 @@
-const getTotalPrice = arr => {
-  const res = arr.reduce((acc, el) => acc + el);
+const getTotalPrice = numbers => {
+  const res = numbers.reduce((acc, el) => acc + el);
   return `$${Math.floor(res * 100) / 100}`;
 };
 

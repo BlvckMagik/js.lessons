@@ -14,9 +14,9 @@ const getCustomersList = obj => {
   const id = Object.keys(obj);
   return res
     .map((el, i) => {
-      const r = { ...el };
-      r.id = id[i];
-      return r;
+      const customerInfo = { ...el };
+      customerInfo.id = id[i];
+      return customerInfo;
     })
     .sort((a, b) => a.age - b.age);
 };

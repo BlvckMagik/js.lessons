@@ -1,7 +1,7 @@
 const getTotalRevenue = transactions => {
   const res = [];
-  transactions.forEach(obj => res.push(obj.amount));
-  return res.reduce((acc, num) => acc + num);
+  transactions.forEach(userTransaction => res.push(userTransaction.amount));
+  return res.reduce((acc, amount) => acc + amount);
 };
 
 // examples
