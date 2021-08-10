@@ -1,3 +1,4 @@
+/* eslint-disable dot-notation */
 const transaction = {
   currency: 'USD',
   value: 170,

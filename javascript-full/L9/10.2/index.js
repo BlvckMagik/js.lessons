@@ -1,8 +1,10 @@
+const EMPTY = 0;
+
 function compareObjects(obj1, obj2) {
   if (Object.keys(obj1).length !== Object.keys(obj2).length) {
     return false;
   }
-  return Object.keys(obj1).filter(el => obj1[el] !== obj2[el]).length === 0;
+  return Object.keys(obj1).filter(el => obj1[el] !== obj2[el]).length === EMPTY;
 }
 
 // examples

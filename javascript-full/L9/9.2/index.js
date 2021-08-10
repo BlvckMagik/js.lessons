@@ -1,6 +1,6 @@
 function buildObject(keysList, valuesList) {
-  return keysList.reduce((acc, el, i) => {
-    acc[el] = valuesList[i];
+  return keysList.reduce((acc, el, index) => {
+    acc[el] = valuesList[index];
     return acc;
   }, {});
 }

@@ -1,6 +1,6 @@
-const getParsedIntegers = arr => arr.map(el => Number.parseInt(el));
+const getParsedIntegers = arr => arr.map(el => Number.parseInt(el, 10));
 
-const getParsedIntegersV2 = arr => arr.map(el => parseInt(el));
+const getParsedIntegersV2 = arr => arr.map(el => parseInt(el, 10));
 
 const getParsedFloats = arr => arr.map(el => Number.parseFloat(el));
 

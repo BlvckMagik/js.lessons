@@ -1,7 +1,7 @@
 const getPeople = obj =>
   Object.values(obj)
     .flat()
-    .map(name => name.name);
+    .map(personName => personName.name);
 
 const rooms = {
   room1: [
