@@ -5,7 +5,7 @@ const inputElem = document.querySelector('.task-input');
 const listElem = document.querySelector('.list');
 
 export const addNewElem = () => {
-  const tasksList = getItem('tasksList');
+  const tasksList = getItem('tasksList') || [];
   if (inputElem.value === '') return;
   tasksList.push({
     text: inputElem.value,

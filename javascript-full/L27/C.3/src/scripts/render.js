@@ -1,9 +1,9 @@
-import { getItem, setItem } from './storage.js';
+import { getItem } from './storage.js';
 
 const listElem = document.querySelector('.list');
 
 export const renderTasks = () => {
-  const tasksList = getItem('tasksList');
+  const tasksList = getItem('tasksList') || [];
   listElem.innerHTML = '';
   const tasksElems = tasksList
     .sort((a, b) => a.done - b.done)
