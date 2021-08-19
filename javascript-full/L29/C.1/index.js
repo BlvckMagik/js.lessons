@@ -1,17 +1,17 @@
 const addImage = (imgSrc, callback) => {
-  const imgEl = document.createElement('img');
-  imgEl.setAttribute('alt', 'Photo');
-  imgEl.src = imgSrc;
+  const imgElem = document.createElement('img');
+  imgElem.setAttribute('alt', 'Photo');
+  imgElem.src = imgSrc;
   const containerEl = document.querySelector('.page');
-  containerEl.append(imgEl);
+  containerEl.append(imgElem);
 
   const onImgLoaded = () => {
-    const { width, height } = imgEl;
-    callback(null, { width, height });
+    const { width, height } = imgElem;
+    callback(null, imgElem);
   };
 
-  imgEl.addEventListener('load', onImgLoaded);
-  imgEl.addEventListener('error', () => callback('Image load is failed'));
+  imgElem.addEventListener('load', onImgLoaded);
+  imgElem.addEventListener('error', () => callback('Image load is failed'));
 };
 
 // callack function
@@ -29,6 +29,6 @@ const onImageLoaded = (error, imgElem) => {
 
 // examples
 addImage(
-  'https://p.bigstockphoto.com/GeFvQkBbSLaMdpKXF1Zv_bigstock-Aerial-View-Of-Blue-Lakes-And--227291596.jpg',
+  'https://p.bigstockphoto.com/GeFvQkBbSLaMdpKXF1Zv_bigstock-AerialView-Of-Blue-Lakes-And--227291596.jpg',
   onImageLoaded
 );
