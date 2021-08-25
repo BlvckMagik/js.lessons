@@ -1,4 +1,4 @@
-const addImage = (imgSrc, callback) => {
+const addImage = imgSrc => {
   const p = new Promise((resolve, reject) => {
     const imgElem = document.createElement('img');
     imgElem.setAttribute('alt', 'Photo');
@@ -8,29 +8,24 @@ const addImage = (imgSrc, callback) => {
 
     const onImgLoaded = () => {
       const { width, height } = imgElem;
-      callback(null, imgElem);
+      resolve({ width, height });
     };
 
     imgElem.addEventListener('load', onImgLoaded);
-    imgElem.addEventListener('error', () => callback('Image load is failed'));
+    imgElem.addEventListener('error', () =>
+      reject(new Error('Image load is failed...'))
+    );
   });
+
+  return p;
 };
 
-// callack function
-const onImageLoaded = (error, imgElem) => {
-  if (error) {
-    console.log(error);
-    return;
-  }
+const result = addImage(
+  'https://p.bigstockphoto.com/GeFvQkBbSLaMdpKXF1Zv_bigstock-Aerial-View-Of-Blue-Lakes-And--227291596.jpg'
+);
 
-  const { width, height } = imgElem;
+result.then(({ width, height }) => {
   const sizeElem = document.querySelector('.image-size');
 
   sizeElem.textContent = `${width} x ${height}`;
-};
-
-// examples
-addImage(
-  'https://p.bigstockphoto.com/GeFvQkBbSLaMdpKXF1Zv_bigstock-AerialView-Of-Blue-Lakes-And--227291596.jpg',
-  onImageLoaded
-);
+});
