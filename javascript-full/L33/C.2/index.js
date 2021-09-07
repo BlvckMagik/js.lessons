@@ -1,30 +1,15 @@
-const urls = [
-  'https://server.com/us',
-  'https://server.com/eu',
-  'https://server.com/au',
-];
+const baseUrl = 'https://5e5cf5eb97d2ea0014796f01.mockapi.io/api/v1/tasks';
 
-const getRandomDelay = (from, to) => from + Math.random() * (to - from);
+const getTasksList = () => fetch(baseUrl).then(response => response.json());
 
-const request = url =>
-  new Promise(resolve => {
-    const delay = getRandomDelay(1000, 3000);
-    setTimeout(() => {
-      resolve({
-        userData: {
-          name: 'Tom',
-          age: 17,
-        },
-        source: url,
-      });
-    }, delay);
-  });
+const getTaskById = taskId =>
+  fetch(`${baseUrl}/${taskId}`).then(response => response.json());
 
-const getUserASAP = userId => {
-  const userUrls = urls.map(serverUrl => `${serverUrl}/${userId}`);
-  const requests = userUrls.map(url => request(url));
+// examples
+getTasksList().then(tasksList => {
+  console.log(tasksList); // array of the task objects - [ {'id':'1', 'done':false ... }, {'id':'2', 'done':true ... }, ...]
+});
 
-  return Promise.race(requests);
-};
-
-getUserASAP('id-123').then(res => console.log(res));
+getTaskById('1').then(taskData => {
+  console.log(taskData); // {'id':'2', 'done':true ... }
+});
