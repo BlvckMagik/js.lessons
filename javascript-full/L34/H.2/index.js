@@ -30,10 +30,13 @@ const onChange = () => {
 const onSubmitForm = event => {
   event.preventDefault();
   const formData = Object.fromEntries(new FormData(formEl));
-  alert(JSON.stringify(formData));
 
   createUser(formData)
-    .then(() => formEl.reset())
+    .then(response => response.json())
+    .then(obj => {
+      alert(obj);
+      formEl.reset();
+    })
     .catch(() => {
       errorTextEl.textContent = 'Failed to create user';
     });
