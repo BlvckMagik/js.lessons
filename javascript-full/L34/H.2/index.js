@@ -33,8 +33,8 @@ const onSubmitForm = event => {
 
   createUser(formData)
     .then(response => response.json())
-    .then(obj => {
-      alert(obj);
+    .then(data => {
+      alert(JSON.stringify(data));
       formEl.reset();
     })
     .catch(() => {
