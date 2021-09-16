@@ -7,6 +7,8 @@ const avatarEl = document.querySelector('.user__avatar');
 const repoList = document.querySelector('.repo-list');
 const spinnerEl = document.querySelector('.spinner');
 
+avatarEl.src = 'https://avatars3.githubusercontent.com/u10001';
+
 const userRequest = userId =>
   fetch(`${baseUrl}/${userId}`).then(response => response.json());
 
