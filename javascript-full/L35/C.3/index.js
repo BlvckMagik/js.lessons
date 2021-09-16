@@ -30,7 +30,8 @@ const onBtnClick = () => {
         .then(reposArr => {
           repoList.textContent = '';
           reposArr.map(repo => repoList.append(createDomEl(repo.name)));
-        });
+        })
+        .catch(() => alert('Failed to load data'));
     })
     .then(() => spinnerEl.classList.toggle('spinner_hidden'))
     .catch(() => alert('Failed to load data'));
