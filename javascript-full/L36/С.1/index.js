@@ -8,13 +8,6 @@ const fetchUser = async userId => {
     const data = await response.json();
     return data;
   } catch (err) {
-    const res = await Promise.reject(new Error(err));
-    return res;
+    throw new Error('Failed to fetch');
   }
 };
-
-fetchUser('facebook')
-  .then(res => console.log(res))
-  .catch(err => {
-    alert(err.message);
-  });
